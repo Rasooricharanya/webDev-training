@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #4b0082;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    .cancel-btn {
+      background-color: #f44336;
+      color: white;
+    }
+
+    .cancel-btn:hover {
+      background-color: #e53935;
+    }
+  </style>
+
+  <!-- JavaScript to create a beautiful favicon -->
+  <script>
+    function createFavicon() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 64;
+      canvas.height = 64;
+
+      const ctx = canvas.getContext('2d');
+
+      // Background gradient circle
+      const gradient = ctx.createRadialGradient(32, 32, 10, 32, 32, 32);
+      gradient.addColorStop(0, '#ff9a9e');
+      gradient.addColorStop(1, '#fad0c4');
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(32, 32, 30, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Add login icon emoji
+      ctx.font = '28px serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('🔒', 32, 34); // You can change this emoji
+
+      const faviconURL = canvas.toDataURL('image/png');
+
+      const link = document.createElement('link');
+      link.rel = 'icon';
+      link.href = faviconURL;
+      document.head.appendChild(link);
+    }
+
+    window.onload = createFavicon;
+  </script>
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Login Page</h2>
+    <input type="text" placeholder="Login ID" id="loginID" />
+    <input type="password" placeholder="Password" id="password" />
+    <div class="btn-group">
+      <button class="submit-btn" onclick="submitForm()">Submit</button>
+      <button class="cancel-btn" onclick="cancelForm()">Cancel</button>
+      <a href="demo04.html">Create </a>
+    </div>
+  </div>
+
+  <script>
+    function submitForm() {
+      const id = document.getElementById("loginID").value;
+      const pwd = document.getElementById("password").value;
+      alert("Login ID: " + id + "\nPassword: " + pwd);
+    }
+
+    function cancelForm() {
+      document.getElementById("loginID").value = '';
+      document.getElementById("password").value = '';
+    }
+  </script>
+
+</body>
+</html>
